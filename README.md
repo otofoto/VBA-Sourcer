@@ -10,13 +10,13 @@ INTRODUCTION
 
     INTRODUCTION
 
-    This short article is addressed to those who want to know where
+   This short article is addressed to those who want to know where
 specifically, macro viruses live, how to look at them with eyes, and how they
 touch with handles.
 
     1. WHICH MACROVIRUSES?
 
-    Only about macro viruses for MS Word. Macroviruses for MS Access, MS
+   Only about macro viruses for MS Word. Macroviruses for MS Access, MS
 Excel, etc. are not covered here.
     In addition, we will keep in mind that we are mainly
 macro viruses written in Visual Basic for Application (VBA) for
@@ -25,8 +25,8 @@ are relevant, but how things are in Word 2003 is not yet very clear.
 
     2. WHAT IS A DOCFILE
 
-    For details see / 1,2 /, and here in brief.
-    It is a .DOC (or .DOT) file with a complex internal
+   For details see / 1,2 /, and here in brief.
+   It is a .DOC (or .DOT) file with a complex internal
 structure called "structured storage" (structured
 storage). MS Word can also create documents in "non-native"
 formats, for example, in .RTF, but we will not consider this situation.
@@ -55,8 +55,8 @@ knows).
 
     3. HOW THE WORD DOCUMENT IS STRUCTURED
 
-    See details in / 3,4 /, and here in short.
-    In general, a document takes up several streams within a file (but
+   See details in / 3,4 /, and here in short.
+   In general, a document takes up several streams within a file (but
 not necessarily all!). Here is a fairly typical thread configuration for
 healthy document:
 
@@ -91,8 +91,7 @@ healthy document:
 
     The same macro is distributed across different threads:
     1) s-code is its text source compressed by the LZSS method;
-    2) p-code is a conversion of the source into an intermediate postfix
-language like
+    2) p-code is a conversion of the source into an intermediate postfix language like
 
     ; a = 1234
 
@@ -101,8 +100,7 @@ language like
     0027 ->
     0220 number in the list of variable names
 
-    3) exe-code is its code, linked to execute virtual
-VBA machine, with commands like:
+    3) exe-code is its code, linked to execute virtual VBA machine, with commands like:
 
     Push Argument1
     Push Argument2
@@ -114,21 +112,21 @@ VBA machine, with commands like:
 
     4. ABOUT ANTI-VIRUS
 
-    Actually, in 95% of cases the source text of the macro is quite
+   Actually, in 95% of cases the source text of the macro is quite
 enough to recognize or suspect a specific virus
 infection. The presence of an infection is usually indicated by the presence of methods:
 
-    1) OrganizerCopy;
-    2) .Import / .Export;
-    3) .InsertLine, .AddFile, etc.
+   1) OrganizerCopy;
+   2) .Import / .Export;
+   3) .InsertLine, .AddFile, etc.
 
-    The remaining 5% falls on cases:
+   The remaining 5% falls on cases:
 
-    1) 1% (in fact, even less often) - when the packed source from
+   1) 1% (in fact, even less often) - when the packed source from
 the file is deleted (for example, by some crooked antivirus);
     2) 4% - when the virus is polymorphic.
 
-    You can try this: do not decompile p-code and even more so
+   You can try this: do not decompile p-code and even more so
 ex-code from undocumented Microsoft codes (although so
 come in "real" antiviruses), but on the contrary, it's good to drive
 known VBA grammar in some Yacc and get a translator
@@ -138,7 +136,7 @@ recognize virae and even try to emulate some of their pieces.
 
     5. DESCRIPTION OF THE EXAMPLE
 
-    The DOC file structure can be examined using the DocFile plugin
+   The DOC file structure can be examined using the DocFile plugin
 Browser to FAR Manager: see the object tree, view
 the insides of the stream in the form of a hex dump ... But FAR cannot
 unpack and show the source text of the macros hiding inside,
@@ -161,4 +159,7 @@ to unpack the source codes of macros on your own, it's quite simple.
     4. DrMAD. How to Catch Your Ponytail. Chapter 6. Fight against macro viruses.
     5. Artem Kaev. ActiveX step by step.
 
-    ATTACHMENT. SOURCE OF DEMONSTRATION UTILITY.
+   ATTACHMENT. SOURCE OF DEMONSTRATION UTILITY.
+  
+  Usage: SVIR.EXE docfile
+   ![image](https://user-images.githubusercontent.com/26463333/107124856-cd20a900-68ae-11eb-9a20-63e8eb0cbe66.png)
